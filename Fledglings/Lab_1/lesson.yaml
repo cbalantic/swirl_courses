@@ -1,0 +1,120 @@
+- Class: meta
+  Course: Fledglings
+  Lesson: Lab 1
+  Author: Cathleen Balantic
+  Type: Standard
+  Organization: VTCFWRU UVM
+  Version: 2.4.3
+
+- Class: text
+  Output: Welcome to R for Fledglings. Today you're going to connect to the class
+    dropbox account and upload a file.
+
+- Class: cmd_question
+  Output: Type drop_auth(new_user = TRUE) into the console. Then press Enter.
+  CorrectAnswer: drop_auth(new_user = TRUE)
+  AnswerTests: omnitest(correctExpr='drop_auth(new_user = TRUE)')
+  Hint: Type or copy drop_auth(new_user = TRUE) into the console and press enter.
+  
+- Class: text
+  Output: The last command should launch a web browser prompting you to authorize 
+    a connection to the R for Fledglings Dropbox. If this didn't occur, ask one of the
+    teachers for help.
+  
+- Class: text
+  Output: In the remotely-launched web browser, type the password 'vermont'
+  
+- Class: text
+  Output: If it worked, exit out of the browser.
+  
+- Class: text
+  Output: Nice job. Now let's play with some data.
+                          
+- Class: cmd_question
+  Output: Enter data(ChickWeight)
+  CorrectAnswer: data(ChickWeight)
+  AnswerTests: omnitest(correctExpr='data(ChickWeight)')
+  Hint: Type or copy data(ChickWeight) in the console and press enter.
+  
+- Class: text
+  Output: Good. You've just loaded in a dataset that comes with the R software.
+    Let's take a look at the data.
+  
+- Class: cmd_question
+  Output: Enter ChickWeight into the console.
+  CorrectAnswer: ChickWeight
+  AnswerTests: omnitest(correctExpr='ChickWeight')
+  Hint: Type or copy ChickWeight into the console and press enter.
+
+- Class: text
+  Output: Nice work. The last command printed most of the rows of the ChickWeight 
+    dataset. If you scroll to the top, you can see that this dataset contains a 
+    column of weights, times of day, individual chicks, and the diets they were fed.
+  
+- Class: text
+  Output: "Next, we are going to look at one chick's weight gain over time."  
+  
+- Class: cmd_question
+  Output: Enter ChickWeight[ChickWeight$Chick == 1,'weight'] into the console
+  CorrectAnswer: ChickWeight[ChickWeight$Chick == 1,'weight']
+  AnswerTests: omnitest(correctExpr="ChickWeight[ChickWeight$Chick == 1,'weight']")
+  Hint: Type or copy ChickWeight[ChickWeight$Chick == 1,'weight'] into the console and press enter.
+
+- Class: text
+  Output: See the output? It is a list of the weights of Chick 1 over time.
+    Next, you will save this output as an object named 'wts'.
+    
+- Class: cmd_question
+  Output: Enter wts <- ChickWeight[ChickWeight$Chick == 1,'weight'] into the console
+  CorrectAnswer: wts <- ChickWeight[ChickWeight$Chick == 1,'weight']
+  AnswerTests: omnitest(correctExpr="wts <- ChickWeight[ChickWeight$Chick == 1,'weight']")
+  Hint: Type or copy wts <- ChickWeight[ChickWeight$Chick == 1,'weight'] into the console and press enter.
+  
+- Class: cmd_question
+  Output: Great job! Now enter wts into the console to check that you've stored those weights.
+  CorrectAnswer: wts
+  AnswerTests: omnitest(correctExpr="wts");expr_creates_var('wts')
+  Hint: Type or copy wts into the console and press enter.
+
+- Class: text
+  Output: Let's see what happens if you add, subtract, divide, or multiply the wts
+    object by something. 
+  
+- Class: cmd_question
+  Output: Enter wts + 2
+  CorrectAnswer: wts + 2
+  AnswerTests: omnitest(correctExpr="wts + 2")
+  Hint: Type or copy wts + 2 into the console and press enter.
+  
+- Class: text
+  Output: Great job. Next, you're going to add, substract, divide, or multiply 
+    the wts object by a number of your choice, and you're going to save it as a new
+     object.
+  
+- Class: cmd_question
+  Output: Enter new_wts <- wts*3
+  CorrectAnswer: new_wts <- wts*3
+  AnswerTests: omnitest(correctExpr="new_wts <- wts*3")expr_creates_var('new_wts')
+  Hint: Type or copy new_wts <- wts*3 into the console and press enter.
+  
+- Class: text
+  Output: Excellent work. Next, you'll save the new_wts object as a .csv file that
+    has your named attached. (A .csv is like an excel file).
+
+- Class: cmd_question
+  Output: Enter write.csv(new_wts, 'cathleen_wts.csv')
+  CorrectAnswer: write.csv(new_wts, 'cathleen_wts.csv')
+  AnswerTests: omnitest(correctExpr="write.csv(new_wts, 'cathleen_wts.csv')")
+  Hint: Type or copy write.csv(new_wts, 'cathleen_wts.csv') into the console and press enter.
+
+- Class: text
+  Output: Good. Now you'll upload the .csv file you just created to the class dropbox. 
+  
+- Class: cmd_question
+  Output: Enter drop_upload('cathleen_wts.csv', dest = "class_plots")
+  CorrectAnswer: drop_upload('cathleen_wts.csv', dest = "class_plots")
+  AnswerTests: omnitest(correctExpr="drop_upload('cathleen_wts.csv', dest = "class_plots")")
+  Hint: Type or copy drop_upload('cathleen_wts.csv', dest = "class_plots") into the console and press enter.
+  
+- Class: text
+  Output: Good work. You've made it through the lesson. Done!
