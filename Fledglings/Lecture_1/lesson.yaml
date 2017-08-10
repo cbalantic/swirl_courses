@@ -1,0 +1,131 @@
+- Class: meta
+  Course: Fledglings
+  Lesson: Lecture_1
+  Author: Cathleen Balantic
+  Type: Standard
+  Organization: VTCFWRU UVM
+  Version: 2.4.3
+  
+- Class: text
+  Output: Welcome to NR/WFB 295/395. Let's play with some data. 
+                          
+- Class: cmd_question
+  Output: Enter library(babynames)
+  CorrectAnswer: library(babynames)
+  AnswerTests: omnitest(correctExpr = 'library(babynames')
+  Hint: Type or copy library(babynames) into the console and press enter.
+  
+- Class: text
+  Output: Good. You've just loaded in a dataset that comes with the R software.
+    Let's learn a bit about the data. 
+  
+- Class: cmd_question
+  Output: Enter ?babynames into the console.
+  CorrectAnswer: ?babynames
+  AnswerTests: omnitest(correctExpr = '?babynames')
+  Hint: Type or copy ?babynames into the console and press enter.
+
+- Class: text
+  Output: Look into the lower left hand corner of R Studio under the 'help' tab. 
+    By typing ?babynames, you have called up the help file for a dataset called
+    'baby names'. Read the description to get an idea about this dataset. 
+    
+- Class: text
+  Output: Before we work with this dataset, we're going to convert it into a 
+  format that we can use. We'll turn it into something called a data frame,
+  which is used for storing data tables. 
+  
+- Class: cmd_question
+  Output: Enter babynames <- as.data.frame(babynames) into the console
+  CorrectAnswer: babynames <- as.data.frame(babynames)
+  AnswerTests: omnitest(correctExpr = "babynames <- as.data.frame(babynames)")
+  Hint: Type or copy babynames <- as.data.frame(babynames) into the console and press enter.
+  
+- Class: text
+  Output: Next, let's check out the first few records of the data frame. 
+  
+- Class: cmd_question
+  Output: Enter head(babynames, 20) into the console
+  CorrectAnswer: head(babynames, 20) 
+  AnswerTests: omnitest(correctExpr = "head(babynames, 20)")
+  Hint: Type or copy head(babynames, 20) into the console and press enter.
+
+- Class: text
+  Output: See the output? The command head(babynames, 20) shows us the first 20 records
+  of the babynames dataset. Let's look at the last 20 records next using the tail() function.
+    
+- Class: cmd_question
+  Output: Enter tail(babynames, 20) into the console
+  CorrectAnswer: tail(babynames, 20) 
+  AnswerTests: omnitest(correctExpr = "tail(babynames, 20)")
+  Hint: Type or copy tail(babynames, 20) into the console and press enter.
+  
+- Class: text
+  Output: Did you notice that this dataset contains 1858689 rows? If you look at the very last
+  record, you see that in 2015, there were five babies named Zyus, which is only a tiny proportion
+  of the total baby names for that year. 
+    
+    
+- Class: mult_question
+  Output: What is the capital of Canada?
+  AnswerChoices: Toronto;Montreal;Ottawa;Vancouver
+  CorrectAnswer: Ottawa
+  AnswerTests: omnitest(correctVal='Ottawa')
+  Hint: This city contains the Rideau Canal.
+    
+     one.name <- our.names[which(our.names$name == fnames[i]), ]
+    
+- Class: cmd_question
+  Output: Enter wts <- ChickWeight[ChickWeight$Chick == 1,'weight'] into the console
+  CorrectAnswer: wts <- ChickWeight[ChickWeight$Chick == 1,'weight']
+  AnswerTests: omnitest(correctExpr="wts <- ChickWeight[ChickWeight$Chick == 1,'weight']");expr_creates_var("wts")
+  Hint: Type or copy wts <- ChickWeight[ChickWeight$Chick == 1,'weight'] into the console and press enter.
+  
+- Class: cmd_question
+  Output: Great job! Now enter wts into the console to check that you've stored those weights.
+  CorrectAnswer: wts
+  AnswerTests: omnitest(correctExpr="wts")
+  Hint: Type or copy wts into the console and press enter.
+
+- Class: text
+  Output: Let's see what happens if you add, subtract, divide, or multiply the wts
+    object by something. 
+  
+- Class: cmd_question
+  Output: Enter wts + 2
+  CorrectAnswer: wts + 2
+  AnswerTests: omnitest(correctExpr="wts + 2")
+  Hint: Type or copy wts + 2 into the console and press enter.
+  
+- Class: text
+  Output: Great job. Next, you're going to add, substract, divide, or multiply 
+    the wts object by a number of your choice, and you're going to save it as a new
+     object.
+  
+- Class: cmd_question
+  Output: Enter new_wts <- wts*3
+  CorrectAnswer: new_wts <- wts*3
+  AnswerTests: omnitest(correctExpr="new_wts <- wts*3");expr_creates_var('new_wts')
+  Hint: Type or copy new_wts <- wts*3 into the console and press enter.
+  
+- Class: text
+  Output: Excellent work. Next, you'll save the new_wts object as a .csv file that
+    has your named attached. (A .csv is like an excel file).
+
+- Class: cmd_question
+  Output: Enter write.csv(new_wts, 'cathleen_wts.csv')
+  CorrectAnswer: write.csv(new_wts, 'cathleen_wts.csv')
+  AnswerTests: omnitest(correctExpr="write.csv(new_wts, 'cathleen_wts.csv')")
+  Hint: Type or copy write.csv(new_wts, 'cathleen_wts.csv') into the console and press enter.
+
+- Class: text
+  Output: Good. Now you'll upload the .csv file you just created to the class dropbox. 
+  
+- Class: cmd_question
+  Output: Enter drop_upload('cathleen_wts.csv', dest = 'class_plots')
+  CorrectAnswer: drop_upload('cathleen_wts.csv', dest = 'class_plots')
+  AnswerTests: omnitest(correctExpr="drop_upload('cathleen_wts.csv', dest = 'class_plots')")
+  Hint: Type or copy drop_upload('cathleen_wts.csv', dest = 'class_plots') into the console and press enter.
+  
+- Class: text
+  Output: Good work. You've made it through the lesson. Done!
