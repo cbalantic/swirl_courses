@@ -8,41 +8,12 @@
   
 - Class: text
   Output: Welcome to NR/WFB 295/395. Let's play with some data. 
-                          
-- Class: cmd_question
-  Output: Enter library(babynames)
-  CorrectAnswer: library(babynames)
-  AnswerTests: omnitest(correctExpr = 'library(babynames')
-  Hint: Type or copy library(babynames) into the console and press enter.
   
 - Class: text
-  Output: Good. You've just loaded in a dataset that comes with the R software.
-    Let's learn a bit about the data. 
-  
-- Class: cmd_question
-  Output: Enter ?babynames into the console.
-  CorrectAnswer: ?babynames
-  AnswerTests: omnitest(correctExpr = '?babynames')
-  Hint: Type or copy ?babynames into the console and press enter.
-
-- Class: text
-  Output: Look into the lower left hand corner of R Studio under the 'help' tab. 
-    By typing ?babynames, you have called up the help file for a dataset called
-    'baby names'. Read the description to get an idea about this dataset. 
+  Output: We've loaded in a dataset called 'babynames' that comes with the R software. Provided by the United States Social Security Administration, this dataset contains all names used for at least 5 children in the U.S. in each year from 1880-2015.
     
 - Class: text
-  Output: Before we work with this dataset, we're going to convert it into a 
-  format that we can use. We'll turn it into something called a data frame,
-  which is used for storing data tables. 
-  
-- Class: cmd_question
-  Output: Enter babynames <- as.data.frame(babynames) into the console
-  CorrectAnswer: babynames <- as.data.frame(babynames)
-  AnswerTests: omnitest(correctExpr = "babynames <- as.data.frame(babynames)")
-  Hint: Type or copy babynames <- as.data.frame(babynames) into the console and press enter.
-  
-- Class: text
-  Output: Next, let's check out the first few records of the data frame. 
+  Output: Let's check out the first few records of the data frame. 
   
 - Class: cmd_question
   Output: Enter head(babynames, 20) into the console
@@ -51,8 +22,7 @@
   Hint: Type or copy head(babynames, 20) into the console and press enter.
 
 - Class: text
-  Output: See the output? The command head(babynames, 20) shows us the first 20 records
-  of the babynames dataset. Let's look at the last 20 records next using the tail() function.
+  Output: See the output? The command head(babynames, 20) shows us the first 20 records of the babynames dataset. Let's look at the last 20 records next using the tail() function.
     
 - Class: cmd_question
   Output: Enter tail(babynames, 20) into the console
@@ -61,71 +31,86 @@
   Hint: Type or copy tail(babynames, 20) into the console and press enter.
   
 - Class: text
-  Output: Did you notice that this dataset contains 1858689 rows? If you look at the very last
-  record, you see that in 2015, there were five babies named Zyus, which is only a tiny proportion
-  of the total baby names for that year. 
+  Output: Did you notice that this dataset contains 1858689 rows? If you look at the very last record, you see that in 2015, there were five babies named Zyus, which is only a tiny proportion of the total baby names for that year. 
     
-    
-- Class: mult_question
-  Output: What is the capital of Canada?
-  AnswerChoices: Toronto;Montreal;Ottawa;Vancouver
-  CorrectAnswer: Ottawa
-  AnswerTests: omnitest(correctVal='Ottawa')
-  Hint: This city contains the Rideau Canal.
-    
-     one.name <- our.names[which(our.names$name == fnames[i]), ]
-    
-- Class: cmd_question
-  Output: Enter wts <- ChickWeight[ChickWeight$Chick == 1,'weight'] into the console
-  CorrectAnswer: wts <- ChickWeight[ChickWeight$Chick == 1,'weight']
-  AnswerTests: omnitest(correctExpr="wts <- ChickWeight[ChickWeight$Chick == 1,'weight']");expr_creates_var("wts")
-  Hint: Type or copy wts <- ChickWeight[ChickWeight$Chick == 1,'weight'] into the console and press enter.
-  
-- Class: cmd_question
-  Output: Great job! Now enter wts into the console to check that you've stored those weights.
-  CorrectAnswer: wts
-  AnswerTests: omnitest(correctExpr="wts")
-  Hint: Type or copy wts into the console and press enter.
-
 - Class: text
-  Output: Let's see what happens if you add, subtract, divide, or multiply the wts
-    object by something. 
-  
-- Class: cmd_question
-  Output: Enter wts + 2
-  CorrectAnswer: wts + 2
-  AnswerTests: omnitest(correctExpr="wts + 2")
-  Hint: Type or copy wts + 2 into the console and press enter.
-  
-- Class: text
-  Output: Great job. Next, you're going to add, substract, divide, or multiply 
-    the wts object by a number of your choice, and you're going to save it as a new
-     object.
-  
-- Class: cmd_question
-  Output: Enter new_wts <- wts*3
-  CorrectAnswer: new_wts <- wts*3
-  AnswerTests: omnitest(correctExpr="new_wts <- wts*3");expr_creates_var('new_wts')
-  Hint: Type or copy new_wts <- wts*3 into the console and press enter.
-  
-- Class: text
-  Output: Excellent work. Next, you'll save the new_wts object as a .csv file that
-    has your named attached. (A .csv is like an excel file).
+  Output: Now, you're going to select and keep only the records containing your name (if there are any)!
 
 - Class: cmd_question
-  Output: Enter write.csv(new_wts, 'cathleen_wts.csv')
-  CorrectAnswer: write.csv(new_wts, 'cathleen_wts.csv')
-  AnswerTests: omnitest(correctExpr="write.csv(new_wts, 'cathleen_wts.csv')")
-  Hint: Type or copy write.csv(new_wts, 'cathleen_wts.csv') into the console and press enter.
+  Output: First, assign your name to a variable called my.name. 
+    You will do this by entering my.name <- 'Cathleen' into the console (replace Cathleen with your name -- make sure it is capitalized and in quotation marks!).
+  CorrectAnswer: NULL
+  AnswerTests: creates_new_var()
+  Hint: ""
+  
+- Class: text
+  Output: Check the box in the upper left-hand corner of RStudio, under the 'Environment' tab. A variable called 'my.name' should have appeared beneath the babynames variable. Do you see it there? (If not, quit the lesson by typing bye() into the console and start over!)
+    
+- Class: text
+  Output: Now, you'll create a data frame that is a subset of the babynames data frame. It will only contain records that have your name.
+
+- Class: cmd_question
+  Output: Enter my.name.subset <- babynames[which(babynames$name == my.name), ]
+  CorrectAnswer: my.name.subset <- babynames[which(babynames$name == my.name), ]
+  AnswerTests: omnitest(correctExpr="my.name.subset <- babynames[which(babynames$name == my.name), ]")
+  Hint: Type or copy my.name.subset <- babynames[which(babynames$name == my.name), ] into the console and press enter. Pay attention to case, spacing, and punctuation!
 
 - Class: text
-  Output: Good. Now you'll upload the .csv file you just created to the class dropbox. 
-  
+  Output: The line of code you just typed created a variable named 'my.name.subset'. Did you see it show up in your Environment tab? Your subset contains ONLY rows of data for which the 'name' column matches your name. It keeps all columns. 
+
 - Class: cmd_question
-  Output: Enter drop_upload('cathleen_wts.csv', dest = 'class_plots')
-  CorrectAnswer: drop_upload('cathleen_wts.csv', dest = 'class_plots')
-  AnswerTests: omnitest(correctExpr="drop_upload('cathleen_wts.csv', dest = 'class_plots')")
-  Hint: Type or copy drop_upload('cathleen_wts.csv', dest = 'class_plots') into the console and press enter.
+  Output: Use the head() function again to check the first 10 records of 'my.name.subset'.
+  CorrectAnswer: head(my.name.subset, 10)
+  AnswerTests: omnitest(correctExpr = "head(my.name.subset, 10)")
+  Hint: Type or copy head(my.name.subset, 10) into the console and press enter. 
   
 - Class: text
-  Output: Good work. You've made it through the lesson. Done!
+  Output: If there are NO records in this data frame, it's because your name was not used in the U.S. more than 5 times in one year between 1880-2015! Quit the lesson and start over from the beginning (don't worry, this isn't a race). Pick any common name that comes to mind, or try a more commonly used spelling of your name if there is one!
+
+- Class: text
+  Output: Let's plot the popularity of your name in the U.S. over time. 
+
+- Class: cmd_question
+  Output: Enter plot(x = my.name.subset$year, y = my.name.subset$n, type = 'l', xlab = 'Year', ylab = 'N', main = my.name, col = 'black')
+  CorrectAnswer: plot(x = my.name.subset$year, y = my.name.subset$n, type = 'l', xlab = 'Year', ylab = 'N', main = my.name, col = 'black')
+  AnswerTests: omnitest(correctExpr="plot(x = my.name.subset$year, y = my.name.subset$n, type = 'l', xlab = 'Year', ylab = 'N', main = my.name, col = 'black')")
+  Hint: Type or copy plot(x = my.name.subset$year, y = my.name.subset$n, type = 'l', xlab = 'Year', ylab = 'N', main = my.name, col = 'black') into the console and press enter.
+
+- Class: text
+  Output: Check to make sure your plot shows up in the lower left-hand RStudio panel under the Plots tab.
+  
+- Class: text
+  Output: You can change the color of your plot! Next, you'll try blue instead of black. 
+
+- Class: cmd_question
+  Output: Enter plot(x = my.name.subset$year, y = my.name.subset$n, type = 'l', xlab = 'Year', ylab = 'N', main = my.name, col = 'blue')
+  CorrectAnswer: plot(x = my.name.subset$year, y = my.name.subset$n, type = 'l', xlab = 'Year', ylab = 'N', main = my.name, col = 'blue')
+  AnswerTests: omnitest(correctExpr="plot(x = my.name.subset$year, y = my.name.subset$n, type = 'l', xlab = 'Year', ylab = 'N', main = my.name, col = 'blue')")
+  Hint: Type or copy plot(x = my.name.subset$year, y = my.name.subset$n, type = 'l', xlab = 'Year', ylab = 'N', main = my.name, col = 'blue') into the console and press enter.
+
+- Class: text
+  Output: But we can make a prettier plot than that. Try the following.
+  
+- Class: cmd_question
+  Output: Enter library(ggplot2)
+  CorrectAnswer: library(ggplot2)
+  AnswerTests: omnitest(correctExpr = "library(ggplot2)")
+  Hint: Type or copy library(ggplot2)
+  
+- Class: text
+  Output: You just called a function named library() that brought in an R software extension named ggplot2, which helps us make nice plots. 
+  
+- Class: cmd_question
+  Output: Enter g <- ggplot(my.name.subset, aes(year, n)) + geom_bar(stat = 'identity') + ggtitle(my.name)
+  CorrectAnswer: g <- ggplot(my.name.subset, aes(year, n)) + geom_bar(stat = 'identity') + ggtitle(my.name)
+  AnswerTests: omnitest(correctExpr="g <- ggplot(my.name.subset, aes(year, n)) + geom_bar(stat = 'identity') + ggtitle(my.name)")
+  Hint: Type or copy g <- ggplot(my.name.subset, aes(year, n)) + geom_bar(stat = 'identity') + ggtitle(my.name)
+
+- Class: cmd_question
+  Output: Enter print(g)
+  CorrectAnswer: print(g)
+  AnswerTests: omnitest(correctExpr="print(g)")
+  Hint: Type or copy print(g)
+  
+- Class: text
+  Output: Cool! That's it for now. You'll learn a lot more about libraries, packages, functions, plotting, and data management in future labs. 
