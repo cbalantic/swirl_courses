@@ -44,7 +44,7 @@
   Hint: ""
   
 - Class: text
-  Output: Check the box in the upper left-hand corner of RStudio, under the 'Environment' tab. A variable called 'my.name' should have appeared beneath the babynames variable. Do you see it there? (If not, quit the lesson by typing bye() into the console and start over!)
+  Output: Look at the box in the upper left-hand corner of RStudio, under the 'Environment' tab. A variable called 'my.name' should have appeared beneath the babynames variable. Do you see it there? (If not, quit the lesson by typing bye() into the console and start over!)
     
 - Class: text
   Output: Now, you'll create a data frame that is a subset of the babynames data frame. It will only contain records that have your name.
