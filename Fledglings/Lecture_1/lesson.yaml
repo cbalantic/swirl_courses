@@ -56,7 +56,7 @@
   Hint: Type or copy my.name.subset <- babynames[which(babynames$name == my.name), ] into the console and press enter. Pay attention to case, spacing, and punctuation!
 
 - Class: text
-  Output: The line of code you just typed created a variable named 'my.name.subset'. Did you see it show up in your Environment tab? Your subset contains ONLY rows of data for which the 'name' column matches your name. It keeps all columns. 
+  Output: The line of code you just typed created a variable named 'my.name.subset'. Did you see it show up in your Environment tab? Your subset contains ONLY rows of data for which the 'name' column matches your name. It keeps all columns, which is why there is a comma before the closing square bracket. 
 
 - Class: cmd_question
   Output: Use the head() function again to check the first 10 records of 'my.name.subset'.
@@ -65,7 +65,7 @@
   Hint: Type or copy head(my.name.subset, 10) into the console and press enter. 
   
 - Class: text
-  Output: If there are NO records in this data frame, it's because your name was not used in the U.S. more than 5 times in one year between 1880-2015! Quit the lesson and start over from the beginning (don't worry, this isn't a race). Pick any common name that comes to mind, or try a more commonly used spelling of your name if there is one!
+  Output: If there are NO records in this data frame, it's because your name was not used in the U.S. more than 5 times in one year between 1880-2015! Quit the lesson and start over from the beginning by entering bye() and then swirl(). (don't worry, this isn't a race). Pick any common name that comes to mind, or try a more commonly used spelling of your name if there is one!
 
 - Class: text
   Output: Let's plot the popularity of your name in the U.S. over time. 
